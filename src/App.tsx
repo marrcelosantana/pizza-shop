@@ -5,14 +5,17 @@ import { RouterProvider } from 'react-router-dom'
 
 import { Toaster } from '@/components/ui/sonner'
 
+import { ThemeProvider } from './components/theme/theme-provider'
 import { router } from './routes'
 
 export function App() {
   return (
     <HelmetProvider>
-      <Toaster richColors />
-      <Helmet titleTemplate="%s | pizza.shop" />
-      <RouterProvider router={router} />
+      <ThemeProvider storageKey="pizzashop-theme" defaultTheme="system">
+        <Toaster richColors />
+        <Helmet titleTemplate="%s | pizza.shop" />
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </HelmetProvider>
   )
 }
