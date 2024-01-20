@@ -15,7 +15,7 @@ export function MonthCanceledOrdersAmountCard() {
         <span className="text-2xl font-bold tracking-tight">32</span>
         <p className="text-xs text-muted-foreground">
           <span className="text-emerald-500 dark:text-emerald-400">-2%</span> em
-          relação a ontem
+          relação ao mês anterior
         </p>
       </CardContent>
     </Card>
