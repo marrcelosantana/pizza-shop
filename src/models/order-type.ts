@@ -1,5 +1,5 @@
 export type OrderType = {
-  orderId: number
+  orderId: string
   createdAt: string
   status: 'pending' | 'processing' | 'delivering' | 'canceled' | 'delivered'
   customerName: string
