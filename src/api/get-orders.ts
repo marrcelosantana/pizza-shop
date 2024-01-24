@@ -1,6 +1,10 @@
 import { api } from '@/lib/axios'
 import { OrderType } from '@/models/order-type'
 
+interface GetOrdersQuery {
+  pageIndex?: number | null
+}
+
 interface GetOrdersResponse {
   orders: OrderType[]
   meta: {
@@ -10,10 +14,10 @@ interface GetOrdersResponse {
   }
 }
 
-export async function getOrders() {
+export async function getOrders({ pageIndex }: GetOrdersQuery) {
   const response = await api.get<GetOrdersResponse>('/orders', {
     params: {
-      pageIndex: 0,
+      pageIndex,
     },
   })
   return response.data
