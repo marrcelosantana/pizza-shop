@@ -8,7 +8,7 @@ interface GetOrdersQuery {
   status?: string | null
 }
 
-interface GetOrdersResponse {
+export interface GetOrdersResponse {
   orders: OrderType[]
   meta: {
     pageIndex: number
