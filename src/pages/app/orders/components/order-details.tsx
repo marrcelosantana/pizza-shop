@@ -20,13 +20,15 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
+import { OrderDetailsSkeleton } from './order-details-skeleton'
+
 interface OrderDetailsProps {
   orderId: string
   modalOpen: boolean
 }
 
 export function OrderDetails({ orderId, modalOpen }: OrderDetailsProps) {
-  const { data: order } = useQuery({
+  const { data: order, isLoading } = useQuery({
     queryKey: ['orders', orderId],
     queryFn: () =>
       getOrderDetails({
@@ -41,6 +43,8 @@ export function OrderDetails({ orderId, modalOpen }: OrderDetailsProps) {
         <DialogTitle>Pedido: {orderId}</DialogTitle>
         <DialogDescription>Detalhes do pedido</DialogDescription>
       </DialogHeader>
+
+      {isLoading && <OrderDetailsSkeleton />}
 
       {order && (
         <div className="space-y-6">
